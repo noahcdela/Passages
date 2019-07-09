@@ -460,7 +460,7 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   mix-blend-mode: exclusion;
-  z-index: 1;
+  z-index: 2;
   background-image: url("/images/s2-center.jpg");
   background-size: 25%; }
 
@@ -477,8 +477,11 @@ body {
   display: flex;
   align-items: center;
   white-space: nowrap;
-  padding: 0 50vw; }
+  position: relative;
+  padding: 0 50vw;
+  overflow: hidden; }
   .section--one {
+    z-index: 3;
     background: #cab8ee;
     background: linear-gradient(-90deg, #cab8ee 0%, #444c5e 100%);
     position: relative;

@@ -23,7 +23,7 @@ body {
     background-repeat: no-repeat;
     mix-blend-mode: exclusion;
 
-    z-index: 1;
+    z-index: 2;
 
     background-image: url('/images/s2-center.jpg');
     background-size: 25%;
@@ -31,20 +31,6 @@ body {
 
 .h-scroll__container {
     width: 100vw;
-//     &::after {
-//         content: '';
-//         position: fixed;
-//         display: block;
-//         width: 100vw;
-//         height: 100vh;
-//         pointer-events: none;
-//         background-position: center center;
-//         background-repeat: no-repeat;
-//         mix-blend-mode: exclusion;
-
-//         background-image: url('/images/s2-center.jpg');
-//         background-size: 25%;
-//     }
 }
 
 .h-scroll {
@@ -58,10 +44,30 @@ body {
     display: flex;
     align-items: center;
     white-space: nowrap;
-
+    position: relative;
     padding: 0 50vw;
 
+    overflow: hidden;
+
+    // &::before {
+    //     content: '';
+    //     position: fixed;
+    //     display: block;
+    //     width: 100vw;
+    //     height: 100vh;
+    //     pointer-events: none;
+    //     background-position: center center;
+    //     background-repeat: no-repeat;
+    //     mix-blend-mode: exclusion;
+    
+    //     z-index: 2;
+    
+    //     background-image: url('/images/s2-center.jpg');
+    //     background-size: 25%;
+    // }
+
     &--one {
+        z-index: 3;
         background: rgb(202,184,238);
         background: linear-gradient(-90deg, rgba(202,184,238,1) 0%, rgba(68,76,94,1) 100%);
         position: relative;
