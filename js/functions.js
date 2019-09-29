@@ -3,7 +3,11 @@ $(function () {
 		hScrollContain = $('.h-scroll__container'),
 		scrollPercent = 200,
 		titleArrow = $('.title_arrow'),
-		titleLetter = $('.title_letter');
+		titleLetter = $('.title_letter'),
+		img = $('.img'),
+		
+		// The lower the number the more extreme the effect
+		parallaxPercent = 10;
 
 	function checkWidth() {
 		var windowHeight = $(window).height(),
@@ -20,6 +24,9 @@ $(function () {
 		hScroll.css({
 			transform: "translateX(-" + scroll / scrollPercent + "%)"
 		});
+		img.css({
+			transform: "translateX(" + scroll / parallaxPercent + "%)"
+		})
 	});
 
 	TweenMax.staggerFrom(titleArrow, 2, {drawSVG:0}, 0.1);
