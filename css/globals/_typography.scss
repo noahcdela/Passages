@@ -25,11 +25,11 @@
 
 @font-face {
     font-family: 'Happy Times at the IKBO';
-    src:    url('/fonts/happy-times-at-the-ikob.eot');
-    src:    url('/fonts/happy-times-at-the-ikob.eot?#iefix') format('embedded-opentype'),
-            url('/fonts/happy-times-at-the-ikob.woff') format('woff'),
-            url('/fonts/happy-times-at-the-ikob.woff2') format('woff2'),
-            url('/fonts/happy-times-at-the-ikob.ttf') format('truetype');
+    src:    url('/fonts/happy-times-at-the-ikob_italic.eot');
+    src:    url('/fonts/happy-times-at-the-ikob_italic.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/happy-times-at-the-ikob_italic.woff') format('woff'),
+            url('/fonts/happy-times-at-the-ikob_italic.woff2') format('woff2'),
+            url('/fonts/happy-times-at-the-ikob_italic.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -39,13 +39,13 @@
 }
 
 %font-sans {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Sporting Grotesque_Regular', Helvetica, Arial, sans-serif;
 }
 
-// ::selection {
-//     background-color: white;
-//     color: $color_white;
-// }
+::selection {
+    background-color: white;
+    color: $color_white;
+}
 
 html {
     -webkit-font-smoothing: antialiased; // Fix fatty fonts
@@ -53,7 +53,7 @@ html {
     font-weight: regular;
     line-height: 1.2;
     text-rendering: optimizeLegibility;
-    font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1, "liga1" 1;
     font-kerning: normal;
     @extend %font-sans;
 }
@@ -65,4 +65,23 @@ a {
 p {
     margin: 0;
     letter-spacing: -.0455em;
+    pointer-events: none;
+}
+
+.main-text {
+    @extend %font-sans;
+    font-size: 4em;
+    line-height: 100vh;
+    margin: 0;
+}
+
+.stanza-marks {
+    margin-right: 25vw;
+    letter-spacing: .2em;
+}
+
+.serif {
+    @extend %font-serif;
+    font-size: 1.25em;
+    letter-spacing: 0;
 }

@@ -1,38 +1,9 @@
 $(function () {
-	var hScroll = $('.h-scroll'),
+	let hScroll = $('.h-scroll'),
 		hScrollContain = $('.h-scroll__container'),
-		scrollPercent = 200;
-
-	// 	firstTl = new TimelineMax({}),
-	// 	fadeInFirst = $('.fade_in--first'),
-	// 	fadeInSecond = $('.fade_in--second'),
-	// 	fadeInThird = $('.fade_in--third'),
-	// 	fadeInFourth = $('.fade_in--fourth');
-
-	// firstTl.from(fadeInFirst, 1.3, {
-	// 		delay: 1,
-	// 		opacity: 0,
-	// 		x: 500,
-	// 		ease: Power1.easeInOut
-	// 	})
-	// 	.from(fadeInSecond, 1.3, {
-	// 		delay: .2,
-	// 		opacity: 0,
-	// 		x: 300,
-	// 		ease: Power1.easeInOut
-	// 	})
-	// 	.from(fadeInThird, 1.3, {
-	// 		// delay: .1,
-	// 		opacity: 0,
-	// 		x: 300,
-	// 		ease: Power1.easeInOut
-	// 	}, '-=1')
-	// 	.from(fadeInFourth, 1.3, {
-	// 		opacity: 0,
-	// 		x: 300,
-	// 		ease: Power1.easeInOut
-	// 	}, '-=1.2');
-
+		scrollPercent = 200,
+		titleArrow = $('.title_arrow'),
+		titleLetter = $('.title_letter');
 
 	function checkWidth() {
 		var windowHeight = $(window).height(),
@@ -50,4 +21,12 @@ $(function () {
 			transform: "translateX(-" + scroll / scrollPercent + "%)"
 		});
 	});
+
+	TweenMax.staggerFrom(titleArrow, 2, {drawSVG:0}, 0.1);
+	TweenMax.staggerFrom(titleLetter, 2, {
+		x: 50,
+		opacity: 0,
+		ease: Power1.easeInOut
+	}, .2);
+
 });
