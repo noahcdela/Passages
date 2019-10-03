@@ -4,7 +4,7 @@ $(function () {
 		scrollPercent = 200,
 		titleArrow = $('.title_arrow'),
 		titleLetter = $('.title_letter'),
-		img = $('.img'),
+		img = $('.img');
 		
 		// The lower the number the more extreme the effect
 		parallaxPercent = 10;
@@ -26,10 +26,9 @@ $(function () {
 		});
 		img.css({
 			transform: "translateX(" + scroll / parallaxPercent + "%)"
-		})
+		});
 	});
 
-	TweenMax.staggerFrom(titleArrow, 2, {drawSVG:0}, 0.1);
 	TweenMax.staggerFrom(titleLetter, 2, {
 		x: 50,
 		opacity: 0,

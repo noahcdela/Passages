@@ -19,6 +19,12 @@ body {
     display: flex;
 }
 
+.container {
+    max-width: 90vw;
+    margin: 0 auto;
+    overflow: auto;
+}
+
 .section {
     height: 100vh;
     display: flex;
@@ -62,9 +68,10 @@ body {
 .title {
     line-height: 100vh;
     font-size: 4em;
-    @extend %font-serif;
+    font-weight: normal;
+    margin: 0;
+    @extend %font-serif--italic;
     text-transform: uppercase;
-    // transition: 20s ease-in-out;
     &_letter {
         margin: 0 .8vw;
         display: inline-block;
@@ -72,7 +79,8 @@ body {
     &_arrow {
         position: absolute;
         opacity: .2;
-        top: 46.5%;
+        top: 50%;
+        margin-top: -32.5px;
         width: 90vw;
     }
 }
@@ -151,7 +159,7 @@ body {
 .footnote {
     position: relative;
     &__body {
-        @extend %font-serif;
+        @extend %font-serif--italic;
         display: inline-block;
         font-size: .24em;
         line-height: 1.45;
@@ -162,15 +170,12 @@ body {
         width: 32em;
         bottom: -8em;
         left: 0;
+        @include for-phone-only {
+            font-size: .6em;
+            bottom: -12em;
+            width: 85vw;
+        }
     }
-}
-
-.colophon-text {
-    font-size: 3em;
-    margin: .5em;
-    @extend %font-serif;
-    line-height: 1.45;
-    // text-transform: uppercase;
 }
 
 sup {
@@ -181,7 +186,9 @@ sup {
 .img {
     position: absolute;
     mix-blend-mode: difference;
-    &-s1 {
+    z-index: -10;
+
+    &-s2 {
         &--img_01 {
             top: 15.2%;
             left: 2.2%;
@@ -199,5 +206,166 @@ sup {
             margin-top: -238px;
             left: 21.4%;
         }
+        &--img_05 {
+            bottom: 0;
+            left: 30.4%;
+        }
+        &--img_06 {
+            top: 10%;
+            left: 36.4%;
+        }
+        &--img_07 {
+            top: 0;
+            left: 51%;
+        }
+        &--img_08 {
+            top: 10%;
+            left: 57%;
+        }
+        &--img_09 {
+            top: 17%;
+            left: 68%;
+        }
     }
+    &-s3 {
+        &--img_01 {
+            top: 50%;
+            margin-top: -288.5px;
+            left: -27%;
+        }
+        &--img_02 {
+            top: 10%;
+            left: -15%;
+        }
+        &--img_03 {
+            bottom: 0;
+            left: -5%;
+        }
+        &--img_04 {
+            top: 50%;
+            margin-top: -405px;
+            left: -6%;
+        }
+        &--img_05 {
+            top: 0;
+            left: -3%;
+        }
+        &--img_06 {
+            top: 10%;
+            left: 9%;
+        }
+        &--img_07 {
+            top: 50%;
+            margin-top: -405px;
+            left: 5%;
+        }
+        &--img_08 {
+            top: 48%;
+            left: 23%;
+        }
+        &--img_09 {
+            top: 7%;
+            left: 37%;
+        }
+        &--img_10 {
+            top: 36%;
+            left: 41%;
+        }
+        &--img_11 {
+            top: -10.1%;
+            left: 58.5%;
+        }
+        &--img_12 {
+            top: 50%;
+            margin-top: -350px;
+            left: 62%;
+        }
+    }
+    &-s4 {
+        &--img_01 {
+            top: 0;
+            left: -84%;
+        }
+        &--img_02 {
+            top: 21%;
+            left: -74%;
+        }
+        &--img_03 {
+            top: 0;
+            left: -64%;
+        }
+        &--img_04 {
+            top: 12%;
+            left: -54%;
+        }
+        &--img_05 {
+            bottom: 0;
+            left: -44%;
+        }
+        &--img_06 {
+            top: 0;
+            left: -34%;
+        }
+        &--img_07 {
+            top: 8%;
+            left: -24%;
+        }
+    }
+    &-s5 {
+        &--img_01 {
+            top: 50%;
+            margin-top: -432px;
+            left: -51%;
+        }
+        &--img_02 {
+            top: 0;
+            left: -36%;
+        }
+        &--img_03 {
+            top: 50%;
+            margin-top: -410.5px;
+            left: -20%;
+        }
+        &--img_04 {
+            top: 0;
+            left: -10%;
+        }
+        &--img_05 {
+            bottom: 0;
+            left: -9%;
+        }
+        &--img_06 {
+            top: 0;
+            left: -26%;
+        }
+        &--img_07 {
+            top: 5%;
+            left: -4%;
+        }
+        &--img_08 {
+            bottom: 0;
+            left: 16%;
+        }
+        &--img_09 {
+            top: 0;
+            left: 28%;
+        }
+        &--img_10 {
+            bottom: 0;
+            left: 25.6%;
+        }
+        &--img_11 {
+            top: 0;
+            left: 28%;        
+        }
+        &--img_12 {
+            top: 50%;
+            margin-top: -285px;
+            left: 0%;
+        }
+    }
+}
+
+.footer {
+    height: 100vh;
 }

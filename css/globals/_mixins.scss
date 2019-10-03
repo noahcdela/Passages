@@ -37,7 +37,5 @@
 :root {
   font-size: calc(0.5em + 1vw);
 
-  @include for-phone-only {
-    font-size: calc(.7em + 1vw);
-  }
+ 
 }
