@@ -477,7 +477,7 @@ template {
 }
 
 /* Dynamic responsive size change */
-/* line 37, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_mixins.scss */
+/* line 38, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_mixins.scss */
 :root {
   font-size: calc(0.5em + 1vw);
 }
@@ -507,12 +507,12 @@ template {
 }
 
 /* line 36, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
-.detail {
+.dagger {
   font-family: 'Happy Times at the IKBO', Georgia, Times, serif;
 }
 
 /* line 40, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
-.serif, .colophon-text, .title, .footnote__body {
+.serif, .title, .footnote__body, .colophon__credit {
   font-family: 'Happy Times at the IKBO', Georgia, Times, serif;
   font-style: italic;
 }
@@ -546,56 +546,47 @@ html {
 }
 
 /* line 65, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
-h2 {
-  text-transform: uppercase;
-}
-
-/* line 69, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
 a {
   color: inherit;
 }
 
-/* line 73, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
+/* line 67, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
+a:hover {
+  text-decoration: none;
+}
+
+/* line 72, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
 p {
   margin: 0;
   letter-spacing: -.0455em;
-  pointer-events: none;
 }
 
-/* line 79, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
+/* line 77, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
 .main-text {
   font-size: 4em;
-  line-height: 100vh;
   margin: 0;
   mix-blend-mode: exclusion;
 }
 
 @media (max-width: 599px) {
-  /* line 79, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
+  /* line 77, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
   .main-text {
-    font-size: 2em;
+    font-size: 3em;
+    -webkit-transform: translateY(-1.05em);
+            transform: translateY(-1.05em);
   }
 }
 
-/* line 90, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
+/* line 88, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
 .stanza-marks {
   margin-right: 25vw;
   letter-spacing: .2em;
 }
 
-/* line 95, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
+/* line 93, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
 .serif {
   font-size: 1.25em;
   letter-spacing: 0;
-}
-
-/* line 101, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_typography.scss */
-.colophon-text {
-  font-size: 3em;
-  letter-spacing: 0;
-  margin-top: .5em;
-  margin-top: 4vw;
-  line-height: 1.45;
 }
 
 /* line 3, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
@@ -604,13 +595,6 @@ body {
   background-color: black;
   color: #a6a8b6;
   color: #e9eaf1;
-}
-
-/* line 10, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.h-scroll__container {
-  position: relative;
-  width: 100vw;
-  z-index: 2;
 }
 
 /* line 16, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
@@ -625,10 +609,26 @@ body {
 .container {
   max-width: 90vw;
   margin: 0 auto;
-  overflow: auto;
+  overflow: hidden;
 }
 
 /* line 28, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+.loader {
+  position: absolute;
+  background-color: black;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* line 38, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+.br-no-mobile {
+  display: none;
+}
+
+/* line 42, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .section {
   height: 100vh;
   display: -webkit-box;
@@ -641,24 +641,30 @@ body {
   overflow: hidden;
 }
 
-/* line 37, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+/* line 50, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .section--intro {
   padding: 0;
   width: 100vw;
+  height: 100vh;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
           justify-content: center;
-  -webkit-box-align: baseline;
-          align-items: baseline;
 }
 
-/* line 45, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 50, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .section--intro {
+    height: 90vh;
+  }
+}
+
+/* line 60, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .section--one {
   padding-left: 10vw;
 }
 
-/* line 49, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+/* line 63, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .section--wrap {
   display: block;
   white-space: normal;
@@ -668,34 +674,36 @@ body {
   line-height: 1.45;
 }
 
-/* line 56, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+/* line 70, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .section--wrap p {
   padding: 5vw 10vw;
   width: 75vw;
   margin: 0 auto;
 }
 
-/* line 64, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.intro__sub-copy {
-  opacity: .5;
-}
-
-/* line 68, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+/* line 78, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .title {
-  line-height: 100vh;
   font-size: 4em;
   font-weight: normal;
   margin: 0;
   text-transform: uppercase;
 }
 
-/* line 75, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 78, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .title {
+    font-size: 3em;
+    line-height: 90vh;
+  }
+}
+
+/* line 90, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .title_letter {
   margin: 0 .8vw;
   display: inline-block;
 }
 
-/* line 79, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+/* line 95, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .title_arrow {
   position: absolute;
   opacity: .2;
@@ -704,96 +712,76 @@ body {
   width: 90vw;
 }
 
-/* line 88, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.detail {
+/* line 104, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+.dagger {
   font-size: 4em;
   position: absolute;
   opacity: .2;
 }
 
-/* line 93, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.detail-top {
+/* line 110, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+.dagger-top {
   top: 20%;
 }
 
-/* line 96, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.detail-bottom {
+@media (min-width: 600px) and (max-width: 899px) {
+  /* line 110, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .dagger-top {
+    top: 10%;
+  }
+}
+
+/* line 117, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+.dagger-bottom {
   bottom: 20%;
 }
 
-/* line 101, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.traverse-seas {
-  padding-left: 4em;
-  padding-right: 4em;
+@media (min-width: 600px) and (max-width: 899px) {
+  /* line 117, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .dagger-bottom {
+    bottom: 10%;
+  }
 }
 
-/* line 106, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.test-img {
-  height: 100vh;
-  mix-blend-mode: screen;
-  -webkit-transform: translateX(70%);
-          transform: translateX(70%);
+@media (max-width: 599px) {
+  /* line 125, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .line {
+    display: none;
+  }
 }
 
-/* line 112, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.img--malaysia {
-  mix-blend-mode: screen;
-  max-height: 100vh;
-  -webkit-transform: scale(0.5);
-          transform: scale(0.5);
-}
-
-/* line 118, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.lax--word {
-  display: inline-block;
-}
-
-/* line 122, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.word--digestion {
-  display: inline-block;
-  position: relative;
-  z-index: 2;
-}
-
-/* line 127, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.word--digestion::after {
+/* line 129, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+.line--left {
   content: '';
-  position: fixed;
-  display: block;
-  z-index: 1;
-  height: 4em;
-  width: 4em;
-  border-radius: 100%;
-  top: 1em;
-  background-color: #477cdf;
-  mix-blend-mode: screen;
-}
-
-/* line 141, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.word--expulsion {
-  display: inline-block;
-  position: relative;
-  z-index: 10;
-}
-
-/* line 146, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.word--expulsion .word_object {
-  display: block;
   position: absolute;
-  z-index: -1;
-  height: 4em;
-  width: 4em;
-  top: 40%;
-  right: 20%;
-  background-color: #477cdf;
+  left: 0;
+  top: 50%;
+  margin-top: -1px;
+  height: 2px;
+  background-color: white;
+  width: 10vw;
+  opacity: .5;
 }
 
-/* line 159, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+/* line 140, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+.line--right {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -1px;
+  height: 2px;
+  background-color: white;
+  width: 10vw;
+  opacity: .5;
+}
+
+/* line 211, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .footnote {
   position: relative;
 }
 
-/* line 161, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+/* line 214, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .footnote__body {
   display: inline-block;
   font-size: .24em;
@@ -808,7 +796,7 @@ body {
 }
 
 @media (max-width: 599px) {
-  /* line 161, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  /* line 214, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
   .footnote__body {
     font-size: .6em;
     bottom: -12em;
@@ -816,270 +804,668 @@ body {
   }
 }
 
-/* line 181, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-sup {
-  display: inline-block;
-  position: relative;
+@media (min-width: 600px) and (max-width: 899px) {
+  /* line 214, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .footnote__body {
+    bottom: -5.8em;
+    font-size: .3em;
+  }
 }
 
-/* line 186, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+/* line 245, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img {
   position: absolute;
   mix-blend-mode: difference;
   z-index: -10;
+  height: auto;
 }
 
-/* line 192, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+/* line 252, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s2--img_01 {
   top: 15.2%;
   left: 2.2%;
 }
 
-/* line 196, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 252, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s2--img_01 {
+    left: -19%;
+    width: 200px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  /* line 252, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s2--img_01 {
+    left: 1%;
+    width: 200px;
+  }
+}
+
+/* line 265, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s2--img_02 {
   top: 35.2%;
   left: 7.6%;
 }
 
-/* line 200, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 265, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s2--img_02 {
+    left: -10%;
+    width: 200px;
+  }
+}
+
+/* line 274, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s2--img_03 {
   top: 0;
   left: 12.2%;
 }
 
-/* line 204, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 274, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s2--img_03 {
+    left: -3%;
+    width: 200px;
+  }
+}
+
+/* line 283, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s2--img_04 {
   top: 50%;
   margin-top: -238px;
   left: 21.4%;
 }
 
-/* line 209, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 283, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s2--img_04 {
+    left: 4%;
+    bottom: 0;
+    width: 200px;
+  }
+}
+
+/* line 294, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s2--img_05 {
   bottom: 0;
   left: 30.4%;
 }
 
-/* line 213, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 294, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s2--img_05 {
+    left: 11%;
+    width: 200px;
+  }
+}
+
+/* line 303, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s2--img_06 {
   top: 10%;
   left: 36.4%;
 }
 
-/* line 217, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 303, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s2--img_06 {
+    left: 22%;
+    width: 200px;
+  }
+}
+
+/* line 312, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s2--img_07 {
   top: 0;
   left: 51%;
 }
 
-/* line 221, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 312, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s2--img_07 {
+    left: 18%;
+    width: 300px;
+  }
+}
+
+/* line 321, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s2--img_08 {
   top: 10%;
   left: 57%;
 }
 
-/* line 225, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 321, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s2--img_08 {
+    left: 42%;
+    width: 200px;
+  }
+}
+
+/* line 330, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s2--img_09 {
   top: 17%;
   left: 68%;
 }
 
-/* line 231, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 330, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s2--img_09 {
+    left: 50%;
+    top: auto;
+    bottom: 0;
+    width: 200px;
+  }
+}
+
+/* line 343, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s3--img_01 {
   top: 50%;
   margin-top: -288.5px;
   left: -27%;
 }
 
-/* line 236, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 343, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s3--img_01 {
+    left: -36%;
+    width: 400px;
+    margin-top: -200px;
+  }
+}
+
+/* line 354, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s3--img_02 {
   top: 10%;
   left: -15%;
 }
 
-/* line 240, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 354, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s3--img_02 {
+    left: -28%;
+    width: 400px;
+  }
+}
+
+/* line 363, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s3--img_03 {
   bottom: 0;
   left: -5%;
 }
 
-/* line 244, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 363, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s3--img_03 {
+    left: -20%;
+    width: 300px;
+  }
+}
+
+/* line 372, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s3--img_04 {
   top: 50%;
   margin-top: -405px;
   left: -6%;
 }
 
-/* line 249, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 372, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s3--img_04 {
+    left: -16%;
+    width: 400px;
+    margin-top: -200px;
+  }
+}
+
+/* line 383, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s3--img_05 {
   top: 0;
   left: -3%;
 }
 
-/* line 253, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 383, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s3--img_05 {
+    left: -10%;
+    width: 400px;
+  }
+}
+
+/* line 392, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s3--img_06 {
   top: 10%;
   left: 9%;
 }
 
-/* line 257, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 392, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s3--img_06 {
+    left: 0%;
+    width: 400px;
+  }
+}
+
+/* line 401, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s3--img_07 {
   top: 50%;
   margin-top: -405px;
   left: 5%;
 }
 
-/* line 262, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 401, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s3--img_07 {
+    left: 6%;
+    width: 400px;
+  }
+}
+
+/* line 411, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s3--img_08 {
   top: 48%;
   left: 23%;
 }
 
-/* line 266, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 411, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s3--img_08 {
+    left: 3%;
+    width: 400px;
+  }
+}
+
+/* line 420, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s3--img_09 {
   top: 7%;
   left: 37%;
 }
 
-/* line 270, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 420, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s3--img_09 {
+    left: 12%;
+    width: 400px;
+  }
+}
+
+/* line 429, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s3--img_10 {
   top: 36%;
   left: 41%;
 }
 
-/* line 274, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 429, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s3--img_10 {
+    left: 20%;
+    width: 400px;
+  }
+}
+
+/* line 438, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s3--img_11 {
   top: -10.1%;
   left: 58.5%;
 }
 
-/* line 278, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 438, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s3--img_11 {
+    left: 28%;
+    width: 400px;
+  }
+}
+
+/* line 447, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s3--img_12 {
   top: 50%;
   margin-top: -350px;
   left: 62%;
 }
 
-/* line 285, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 447, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s3--img_12 {
+    left: 33%;
+    width: 400px;
+  }
+}
+
+/* line 459, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s4--img_01 {
   top: 0;
   left: -84%;
 }
 
-/* line 289, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 459, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s4--img_01 {
+    left: -76%;
+    width: 300px;
+  }
+}
+
+/* line 468, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s4--img_02 {
   top: 21%;
   left: -74%;
 }
 
-/* line 293, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 468, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s4--img_02 {
+    left: -90%;
+    width: 400px;
+  }
+}
+
+/* line 477, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s4--img_03 {
   top: 0;
   left: -64%;
 }
 
-/* line 297, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 477, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s4--img_03 {
+    left: -48%;
+    width: 300px;
+  }
+}
+
+/* line 486, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s4--img_04 {
   top: 12%;
   left: -54%;
 }
 
-/* line 301, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 486, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s4--img_04 {
+    left: -96%;
+    top: auto;
+    bottom: 0;
+    width: 500px;
+  }
+}
+
+/* line 497, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s4--img_05 {
   bottom: 0;
   left: -44%;
 }
 
-/* line 305, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 497, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s4--img_05 {
+    left: -53%;
+    width: 400px;
+  }
+}
+
+/* line 506, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s4--img_06 {
   top: 0;
   left: -34%;
 }
 
-/* line 309, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 506, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s4--img_06 {
+    left: -35%;
+    width: 300px;
+  }
+}
+
+/* line 515, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s4--img_07 {
   top: 8%;
   left: -24%;
 }
 
-/* line 315, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 515, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s4--img_07 {
+    left: -8%;
+    width: 300px;
+  }
+}
+
+/* line 526, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s5--img_01 {
   top: 50%;
   margin-top: -432px;
   left: -51%;
 }
 
-/* line 320, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 526, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s5--img_01 {
+    left: -87%;
+    width: 400px;
+    margin-top: -341px;
+  }
+}
+
+/* line 537, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s5--img_02 {
   top: 0;
   left: -36%;
 }
 
-/* line 324, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 537, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s5--img_02 {
+    left: -78%;
+    width: 400px;
+  }
+}
+
+/* line 546, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s5--img_03 {
   top: 50%;
   margin-top: -410.5px;
   left: -20%;
 }
 
-/* line 329, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 546, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s5--img_03 {
+    left: -70%;
+    width: 400px;
+    margin-top: -200px;
+  }
+}
+
+/* line 557, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s5--img_04 {
   top: 0;
   left: -10%;
 }
 
-/* line 333, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 557, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s5--img_04 {
+    left: -62%;
+    width: 400px;
+    top: 25%;
+  }
+}
+
+/* line 567, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s5--img_05 {
   bottom: 0;
   left: -9%;
 }
 
-/* line 337, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 567, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s5--img_05 {
+    left: -52%;
+    width: 400px;
+  }
+}
+
+/* line 576, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s5--img_06 {
   top: 0;
   left: -26%;
 }
 
-/* line 341, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 576, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s5--img_06 {
+    left: -43%;
+    width: 400px;
+  }
+}
+
+/* line 585, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s5--img_07 {
   top: 5%;
   left: -4%;
 }
 
-/* line 345, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 585, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s5--img_07 {
+    left: -34%;
+    width: 400px;
+  }
+}
+
+/* line 594, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s5--img_08 {
   bottom: 0;
   left: 16%;
 }
 
-/* line 349, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 594, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s5--img_08 {
+    left: 3%;
+    width: 300px;
+  }
+}
+
+/* line 603, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s5--img_09 {
   top: 0;
   left: 28%;
 }
 
-/* line 353, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 603, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s5--img_09 {
+    left: -4%;
+    width: 200px;
+  }
+}
+
+/* line 612, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s5--img_10 {
   bottom: 0;
   left: 25.6%;
 }
 
-/* line 357, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 612, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s5--img_10 {
+    left: -35%;
+    width: 200px;
+  }
+}
+
+/* line 621, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s5--img_11 {
   top: 0;
   left: 28%;
 }
 
-/* line 361, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+@media (max-width: 599px) {
+  /* line 621, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s5--img_11 {
+    left: 9.3%;
+    top: 45%;
+    width: 200px;
+  }
+}
+
+/* line 631, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
 .img-s5--img_12 {
   top: 50%;
   margin-top: -285px;
   left: 0%;
 }
 
-/* line 369, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
-.footer {
-  height: 100vh;
+@media (max-width: 599px) {
+  /* line 631, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .img-s5--img_12 {
+    left: -20%;
+    width: 400px;
+    margin-top: -159px;
+  }
+}
+
+/* line 644, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+.colophon {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* line 648, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+.colophon .container {
+  margin-bottom: 4vw;
+}
+
+/* line 652, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+.colophon__text {
+  font-size: 3vw;
+  letter-spacing: 0;
+  margin-top: 2.4em;
+  line-height: 1.45;
+}
+
+@media (max-width: 599px) {
+  /* line 652, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .colophon__text {
+    font-size: 6vw;
+  }
+}
+
+/* line 662, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+.colophon__header {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: .2em;
+  margin: 2em 0 0 0;
+}
+
+/* line 669, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+.colophon__credit {
+  font-size: 1.8rem;
+  letter-spacing: 0;
+}
+
+/* line 675, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+.colophon__img {
+  position: absolute;
+  top: 50%;
+  margin-top: -297.5px;
+  left: 50%;
+  margin-left: -201.5px;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+@media (max-width: 599px) {
+  /* line 675, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_base.scss */
+  .colophon__img {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    top: 70%;
+  }
 }
 
 /* line 3, Users/noahdelagardelle/Library/Mobile Documents/com~apple~CloudDocs/_Projects/_ephemera/passages/_dev/css/globals/_buttons.scss */
